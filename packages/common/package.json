@@ -1,0 +1,20 @@
+{
+  "name": "@favtunes/common",
+  "version": "1.0.0",
+  "description": "> TODO: description",
+  "author": "lobsterbandit <code.lobsterbandit@outlook.com>",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "jest",
+    "prepare": "tsc -b --force",
+    "start": "tsc -p tsconfig.json -w",
+    "build": "tsc -b --force"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.17",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.5.3"
+  }
+}

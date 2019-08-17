@@ -1,0 +1,25 @@
+{
+  "name": "@favtunes/pandora",
+  "private": true,
+  "version": "1.0.0",
+  "description": "favtunes pandora plugin",
+  "author": "lobsterbandit <code.lobsterbandit@outlook.com>",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "jest",
+    "start": "ts-node src/index.ts",
+    "prepare": "tsc -b --force",
+    "build": "tsc -b --force"
+  },
+  "dependencies": {
+    "@favtunes/common": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.17",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.0.2",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.3"
+  }
+}

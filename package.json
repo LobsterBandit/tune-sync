@@ -1,0 +1,23 @@
+{
+  "name": "@favtunes/root",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "prepare": "lerna run prepare",
+    "clean": "lerna clean",
+    "start": "lerna run start --stream",
+    "build": "lerna run build --stream",
+    "test": "lerna run test --stream"
+  },
+  "devDependencies": {
+    "@spotify/eslint-config": "^1.2.0",
+    "@spotify/prettier-config": "^1.1.4",
+    "eslint": "^5.16.0",
+    "prettier": "^1.18.2",
+    "lerna": "^3.16.4",
+    "typescript": "^3.5.3"
+  }
+}

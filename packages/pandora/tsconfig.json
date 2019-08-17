@@ -1,0 +1,17 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "target": "es2017",
+    "lib": ["esnext"],
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "module": "commonjs",
+    "composite": true,
+    "rootDir": "src",
+    "outDir": "build",
+    "types": ["jest"]
+  },
+  "include": ["src"],
+  "references": [{ "path": "../common" }]
+}
