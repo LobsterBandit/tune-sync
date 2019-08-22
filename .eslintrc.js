@@ -1,5 +1,8 @@
 module.exports = {
-  extends: [
-    '@spotify',
-  ],
+  extends: ['@spotify'],
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
 };

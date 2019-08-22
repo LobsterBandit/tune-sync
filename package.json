@@ -8,16 +8,23 @@
     "bootstrap": "lerna bootstrap",
     "prepare": "lerna run prepare",
     "clean": "lerna clean",
-    "start": "lerna run start --stream",
-    "build": "lerna run build --stream",
-    "test": "lerna run test --stream"
+    "start": "tsc -b --watch --verbose",
+    "build": "tsc -b --force --verbose",
+    "test": "lerna run test --stream",
+    "lint": "eslint --ext js,jsx,ts,tsx packages",
+    "pretty:check": "prettier --check packages/**/*.*"
   },
   "devDependencies": {
     "@spotify/eslint-config": "^1.2.0",
     "@spotify/prettier-config": "^1.1.4",
+    "@types/jest": "^24.0.17",
+    "@types/node": "^12.7.2",
     "eslint": "^5.16.0",
+    "jest": "24.7.1",
     "prettier": "^1.18.2",
     "lerna": "^3.16.4",
+    "rimraf": "3.0.0",
+    "ts-jest": "^24.0.2",
     "typescript": "^3.5.3"
   }
 }

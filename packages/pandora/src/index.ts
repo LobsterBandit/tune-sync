@@ -1,5 +1,3 @@
-import { add2 } from '@favtunes/common';
-
-export function addingMachine(number: number) {
-  return add2(number);
-}
+export * from './PandoraService';
+export { default as pandoraConfig } from './PandoraConfig';
+export * from './PandoraUser';

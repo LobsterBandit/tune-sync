@@ -1,9 +1,14 @@
 {
   "files": [],
   "references": [
-    { "path": "packages/common" },
+    {
+      "path": "packages/common"
+    },
     {
       "path": "packages/pandora"
+    },
+    {
+      "path": "packages/server"
     }
   ]
 }

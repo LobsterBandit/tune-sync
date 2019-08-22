@@ -1,0 +1,68 @@
+import { AppUser } from '@favtunes/common';
+
+export interface PandoraUser extends AppUser {
+  authToken: string;
+  listenerId: string;
+  username: string;
+  webname: string;
+  explicitContentFilterEnabled: boolean;
+  birthYear: number;
+  zipCode: string;
+  gender: string;
+  minor: boolean;
+  profilePrivate: boolean;
+  emailOptOut: boolean;
+  allowProfileComment: boolean;
+  notifyOnComment: boolean;
+  notifyOnFollow: boolean;
+  artistPromoEmailsEnabled: boolean;
+  artistAudioMessagesEnabled: boolean;
+  isNew: boolean;
+  config: {
+    branding: string;
+    dailySkipLimit: number;
+    stationSkipLimit: number;
+    inactivityTimeout: number;
+    experiments: number[];
+    flags: string[];
+  };
+  adkv: {
+    zip: string;
+    aa: string;
+    st: string;
+    hours: string;
+    prg: string;
+    ag: string;
+    hhi: string;
+    clean: string;
+    co: string;
+    ios: string;
+    l: string;
+    an: string;
+    hisp: string;
+    et: string;
+    comped: string;
+    fam: string;
+    dse: string;
+    dma: string;
+    msa: string;
+    gnd: string;
+    fb: string;
+    iat: string;
+  };
+  activeVxRewards: any[];
+  listenerToken: string;
+  highQualityStreamingEnabled: boolean;
+  seenEducation: boolean;
+  smartConversionAdUrl: string;
+  smartConversionTimeoutMillis: number;
+  smartConversionDisabled: boolean;
+  stationCount: number;
+  webClientVersion: string;
+  placeholderProfileImageUrl: string;
+  autoplayEnabled: boolean;
+  kruxToken: string;
+  premiumAccessAdUrl: string;
+  premiumAccessNoAvailsAdUrl: string;
+  staticAdTargeting: string;
+}

@@ -1,8 +1,8 @@
 {
-  "name": "@favtunes/pandora",
+  "name": "@favtunes/server",
   "private": true,
   "version": "1.0.0",
-  "description": "favtunes pandora plugin",
+  "description": "favtunes server",
   "author": "lobsterbandit <code.lobsterbandit@outlook.com>",
   "license": "MIT",
   "main": "build/index.js",
@@ -11,14 +11,14 @@
     "build": "yarn run clean && tsc -b --force",
     "clean": "rimraf build",
     "prepare": "yarn run clean && tsc -b --force",
-    "start": "tsc -p tsconfig.json -w"
+    "start": "ts-node -r dotenv/config src/index.ts"
   },
   "dependencies": {
-    "@favtunes/common": "^1.0.0",
-    "axios": "^0.19.0",
-    "cookie": "^0.4.0"
+    "@favtunes/pandora": "^1.0.0",
+    "dotenv": "^8.1.0"
   },
   "devDependencies": {
-    "@types/cookie": "^0.3.3"
+    "axios": "^0.19.0",
+    "ts-node": "^8.3.0"
   }
 }

@@ -10,8 +10,9 @@
     "composite": true,
     "rootDir": "src",
     "outDir": "build",
-    "types": ["jest"]
+    "types": ["jest", "node"]
   },
   "include": ["src"],
+  "exclude": ["src/**/*.test.ts"],
   "references": [{ "path": "../common" }]
 }

@@ -1,10 +1,8 @@
-import { addingMachine } from './index';
+import { RestClient } from './RestClient';
 
-describe('addingMachine', () => {
-  it('adds 2 to the number', () => {
-    const got = addingMachine(4);
-    const want = 6;
-
-    expect(got).toBe(want);
+describe('RestService', () => {
+  it('returns a CSRF token', async () => {
+    const got = await new RestClient().getCSRFToken();
+    expect(got).toBeDefined();
   });
 });
