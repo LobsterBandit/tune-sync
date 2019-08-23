@@ -10,9 +10,9 @@
     "clean": "lerna clean",
     "start": "tsc -b --watch --verbose",
     "build": "tsc -b --force --verbose",
-    "test": "lerna run test --stream",
-    "lint": "eslint --ext js,jsx,ts,tsx packages",
-    "pretty:check": "prettier --check packages/**/*.*"
+    "lint": "eslint --ext js,jsx,ts,tsx packages/**",
+    "lint:fix": "eslint --ext js,jsx,ts,tsx packages/** --fix",
+    "pretty:check": "prettier --check packages/**/*.{ts,tsx}"
   },
   "devDependencies": {
     "@spotify/eslint-config": "^1.2.0",
@@ -20,6 +20,7 @@
     "@types/jest": "^24.0.17",
     "@types/node": "^12.7.2",
     "eslint": "^5.16.0",
+    "eslint-plugin-prettier": "3.1.0",
     "jest": "24.7.1",
     "prettier": "^1.18.2",
     "lerna": "^3.16.4",

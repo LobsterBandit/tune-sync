@@ -1,5 +1,6 @@
 module.exports = {
-  extends: ['@spotify'],
+  extends: ['@spotify', 'plugin:prettier/recommended'],
+  plugins: ['prettier'],
   settings: {
     react: {
       version: 'detect',
