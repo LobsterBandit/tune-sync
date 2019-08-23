@@ -3,7 +3,7 @@ import { PandoraService } from '@favtunes/pandora';
 import { AxiosError } from 'axios';
 import * as fs from 'fs';
 
-(async () => {
+export const pandora = async () => {
   const service = new PandoraService();
 
   try {
@@ -54,4 +54,4 @@ import * as fs from 'fs';
       // fs.writeFileSync('./error.json', JSON.stringify(err.response.data));
     }
   }
-})();
+};

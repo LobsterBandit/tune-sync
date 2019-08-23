@@ -1,8 +1,8 @@
 {
-  "name": "@favtunes/server",
+  "name": "@favtunes/cli",
   "private": true,
   "version": "1.0.0",
-  "description": "favtunes server",
+  "description": "favtunes cli",
   "author": "lobsterbandit <code.lobsterbandit@outlook.com>",
   "license": "MIT",
   "main": "build/index.js",

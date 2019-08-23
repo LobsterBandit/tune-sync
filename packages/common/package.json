@@ -10,7 +10,7 @@
     "build": "yarn run clean && tsc -b --force",
     "clean": "rimraf build",
     "prepare": "yarn run clean && tsc -b --force",
-    "start": "tsc -p tsconfig.json -w"
+    "start": "tsc -b --watch"
   },
   "devDependencies": {}
 }

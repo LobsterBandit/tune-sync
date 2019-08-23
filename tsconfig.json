@@ -8,7 +8,7 @@
       "path": "packages/pandora"
     },
     {
-      "path": "packages/server"
+      "path": "packages/cli"
     }
   ]
 }
