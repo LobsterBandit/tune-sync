@@ -1,5 +1,5 @@
 {
-  "name": "@favtunes/root",
+  "name": "@tune-sync/root",
   "private": true,
   "workspaces": [
     "packages/*"
@@ -9,7 +9,7 @@
     "prepare": "lerna run prepare",
     "clean": "lerna clean && tsc -b --clean && yarn run remove:tsbuildinfo",
     "start": "tsc -b --watch --verbose",
-    "start:cli": "lerna run --scope @favtunes/cli --stream start --",
+    "start:cli": "lerna run --scope @tune-sync/cli --stream start --",
     "build": "tsc -b --force --verbose",
     "lint": "eslint --ext js,jsx,ts,tsx packages/**",
     "lint:fix": "eslint --ext js,jsx,ts,tsx packages/** --fix",

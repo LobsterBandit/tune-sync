@@ -2,7 +2,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import yargs from 'yargs';
-import { PandoraUser } from '@favtunes/pandora';
+import { PandoraUser } from '@tune-sync/pandora';
 
 const argv = yargs
   .command('user [key]', 'show user profile', {}, () => {

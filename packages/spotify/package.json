@@ -1,8 +1,8 @@
 {
-  "name": "@favtunes/spotify",
+  "name": "@tune-sync/spotify",
   "private": true,
   "version": "1.0.0",
-  "description": "favtunes spotify plugin",
+  "description": "tune-sync spotify plugin",
   "author": "lobsterbandit <code.lobsterbandit@outlook.com>",
   "license": "MIT",
   "main": "build/index.js",
@@ -14,7 +14,7 @@
     "start": "tsc -b --watch"
   },
   "dependencies": {
-    "@favtunes/common": "^1.0.0",
+    "@tune-sync/common": "^1.0.0",
     "spotify-web-api-js": "1.2.0"
   },
   "devDependencies": {}

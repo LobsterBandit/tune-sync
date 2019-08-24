@@ -1,8 +1,8 @@
 {
-  "name": "@favtunes/cli",
+  "name": "@tune-sync/cli",
   "private": true,
   "version": "1.0.0",
-  "description": "favtunes cli",
+  "description": "tune-sync cli",
   "author": "lobsterbandit <code.lobsterbandit@outlook.com>",
   "license": "MIT",
   "main": "build/index.js",
@@ -14,7 +14,7 @@
     "start": "ts-node -r dotenv/config src/index.ts"
   },
   "dependencies": {
-    "@favtunes/pandora": "^1.0.0",
+    "@tune-sync/pandora": "^1.0.0",
     "dotenv": "^8.1.0",
     "yargs": "14.0.0"
   },

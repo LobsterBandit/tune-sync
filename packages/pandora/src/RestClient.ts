@@ -1,7 +1,7 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 import cookie from 'cookie';
 import { PandoraUser } from './PandoraUser';
-import { ServiceConfiguration } from '@favtunes/common';
+import { ServiceConfiguration } from '@tune-sync/common';
 
 export type ApiConfig = {
   version?: string;

@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { PandoraService } from '@favtunes/pandora';
+import { PandoraService } from '@tune-sync/pandora';
 import { AxiosError } from 'axios';
 import * as fs from 'fs';
 

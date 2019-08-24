@@ -1,8 +1,8 @@
 {
-  "name": "@favtunes/pandora",
+  "name": "@tune-sync/pandora",
   "private": true,
   "version": "1.0.0",
-  "description": "favtunes pandora plugin",
+  "description": "tune-sync pandora plugin",
   "author": "lobsterbandit <code.lobsterbandit@outlook.com>",
   "license": "MIT",
   "main": "build/index.js",
@@ -14,7 +14,7 @@
     "start": "tsc -b --watch"
   },
   "dependencies": {
-    "@favtunes/common": "^1.0.0",
+    "@tune-sync/common": "^1.0.0",
     "axios": "^0.19.0",
     "cookie": "^0.4.0"
   },

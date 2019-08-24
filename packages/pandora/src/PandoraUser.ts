@@ -1,4 +1,4 @@
-import { AppUser } from '@favtunes/common';
+import { AppUser } from '@tune-sync/common';
 
 export interface PandoraUser extends AppUser {
   authToken: string;

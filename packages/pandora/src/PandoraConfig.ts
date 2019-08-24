@@ -1,4 +1,4 @@
-import { ServiceConfiguration } from '@favtunes/common';
+import { ServiceConfiguration } from '@tune-sync/common';
 import { PandoraUser } from './PandoraUser';
 
 export class PandoraConfig implements ServiceConfiguration<PandoraUser> {
