@@ -15,7 +15,8 @@
   },
   "dependencies": {
     "@favtunes/pandora": "^1.0.0",
-    "dotenv": "^8.1.0"
+    "dotenv": "^8.1.0",
+    "yargs": "14.0.0"
   },
   "devDependencies": {
     "axios": "^0.19.0",

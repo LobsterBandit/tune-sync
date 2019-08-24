@@ -5,15 +5,16 @@
     "packages/*"
   ],
   "scripts": {
-    "bootstrap": "lerna bootstrap",
+    "bootstrap": "lerna bootstrap && tsc -b --force",
     "prepare": "lerna run prepare",
-    "clean": "lerna clean",
+    "clean": "lerna clean && tsc -b --clean && yarn run remove:tsbuildinfo",
     "start": "tsc -b --watch --verbose",
-    "start:cli": "lerna run --scope @favtunes/cli --stream start",
+    "start:cli": "lerna run --scope @favtunes/cli --stream start --",
     "build": "tsc -b --force --verbose",
     "lint": "eslint --ext js,jsx,ts,tsx packages/**",
     "lint:fix": "eslint --ext js,jsx,ts,tsx packages/** --fix",
-    "pretty:check": "prettier --check packages/**/*.{ts,tsx}"
+    "pretty:check": "prettier --check packages/**/*.{ts,tsx}",
+    "remove:tsbuildinfo": "rimraf **/*.tsbuildinfo"
   },
   "devDependencies": {
     "@spotify/eslint-config": "^1.2.0",
