@@ -1,0 +1,21 @@
+{
+  "name": "@favtunes/spotify",
+  "private": true,
+  "version": "1.0.0",
+  "description": "favtunes spotify plugin",
+  "author": "lobsterbandit <code.lobsterbandit@outlook.com>",
+  "license": "MIT",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "scripts": {
+    "build": "yarn run clean && tsc -b --force",
+    "clean": "rimraf build",
+    "prepare": "yarn run clean && tsc -b --force",
+    "start": "tsc -b --watch"
+  },
+  "dependencies": {
+    "@favtunes/common": "^1.0.0",
+    "spotify-web-api-js": "1.2.0"
+  },
+  "devDependencies": {}
+}

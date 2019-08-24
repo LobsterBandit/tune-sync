@@ -13,7 +13,7 @@
     "build": "tsc -b --force --verbose",
     "lint": "eslint --ext js,jsx,ts,tsx packages/**",
     "lint:fix": "eslint --ext js,jsx,ts,tsx packages/** --fix",
-    "pretty:check": "prettier --check packages/**/*.{ts,tsx}",
+    "pretty:check": "prettier --check packages/**/*.{js,jsx,ts,tsx,json,md}",
     "remove:tsbuildinfo": "rimraf **/*.tsbuildinfo"
   },
   "devDependencies": {
