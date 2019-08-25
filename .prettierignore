@@ -1,5 +1,7 @@
 node_modules
 *.tsbuildinfo
 *.json
+!package.json
+!tsconfig*.json
 build
 dist

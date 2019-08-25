@@ -1,0 +1,26 @@
+{
+  "name": "@tune-sync/web",
+  "private": true,
+  "version": "1.0.0",
+  "description": "tune-sync React component library",
+  "author": "lobsterbandit <code.lobsterbandit@outlook.com>",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {},
+  "dependencies": {
+    "@tune-sync/common": "^1.0.0",
+    "react-router-dom": "5.0.1"
+  },
+  "peerDependencies": {
+    "react": "16.9.0",
+    "react-dom": "16.9.0"
+  },
+  "devDependencies": {
+    "@types/react": "16.9.2",
+    "@types/react-dom": "16.9.0",
+    "@types/react-router-dom": "4.3.5",
+    "react": "16.9.0",
+    "react-dom": "16.9.0"
+  }
+}

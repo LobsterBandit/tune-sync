@@ -2,15 +2,14 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "target": "esnext",
-    "lib": ["esnext"],
+    "lib": ["dom", "esnext"],
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
     "module": "commonjs",
     "composite": true,
     "rootDir": "src",
-    "outDir": "build",
-    "types": ["jest"]
+    "outDir": "build"
   },
   "include": ["src"]
 }
