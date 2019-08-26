@@ -11,11 +11,10 @@
     "build": "yarn run clean && tsc -b --force",
     "clean": "rimraf build",
     "prepare": "yarn run clean && tsc -b --force",
-    "start": "ts-node -r dotenv/config src/index.ts"
+    "start": "ts-node src/index.ts"
   },
   "dependencies": {
     "@tune-sync/pandora": "^1.0.0",
-    "dotenv": "^8.1.0",
     "yargs": "14.0.0"
   },
   "devDependencies": {
