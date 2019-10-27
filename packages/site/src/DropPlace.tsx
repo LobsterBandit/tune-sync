@@ -2,10 +2,10 @@
 import React, { useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 import styled from 'styled-components';
-import { PandoraUser } from '@tune-sync/pandora';
+import { PandoraTrackFeedback } from '@tune-sync/pandora';
 
 type DropPlaceProps = {
-  onFileParse?: (feedback: PandoraUser[]) => void;
+  onFileParse?: (feedback: PandoraTrackFeedback[]) => void;
 };
 
 export const DropPlace = ({
@@ -21,7 +21,7 @@ export const DropPlace = ({
         console.log(`${progressEvent.loaded}/${progressEvent.total} loaded`);
       reader.onload = () => {
         const textStr = reader.result as string;
-        const typed = JSON.parse(textStr) as PandoraUser[];
+        const typed = JSON.parse(textStr) as PandoraTrackFeedback[];
         if (onFileParse) onFileParse(typed);
       };
 

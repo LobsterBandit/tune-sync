@@ -2,6 +2,7 @@ import React, { useState, useCallback } from 'react';
 import JSONTree from 'react-json-tree';
 import styled, { createGlobalStyle } from 'styled-components';
 import { DropPlace } from './DropPlace';
+import { PandoraTrackFeedback } from '@tune-sync/pandora';
 
 const GlobalStyle = createGlobalStyle<{ dark?: boolean }>`
   body {
@@ -72,10 +73,10 @@ const theme = {
 };
 
 const App = () => {
-  const [data, setData] = useState<any[]>([]);
+  const [data, setData] = useState<PandoraTrackFeedback[]>([]);
 
   const handleSuccessfulParse = useCallback(
-    parsedData => {
+    (parsedData: PandoraTrackFeedback[]) => {
       setData(parsedData);
     },
     [setData],
@@ -95,7 +96,13 @@ const App = () => {
         </UploadZone>
         <DisplayResult>
           {data.length > 0 ? (
-            <JSONTree data={data} theme={theme} />
+            <React.Fragment>
+              <div>
+                Some analysis of data. Maybe filters based on station, artist,
+                etc
+              </div>
+              <JSONTree data={data} theme={theme} />
+            </React.Fragment>
           ) : (
             <pre>Your uploaded data appears here after successful parsing</pre>
           )}

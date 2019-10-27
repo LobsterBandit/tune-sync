@@ -117,7 +117,7 @@ export type GetStationDetailsResponse = {
 
 export type GetStationFeedbackResponse = {
   total: number;
-  feedback: StationFeedback[];
+  feedback: PandoraStationFeedback[];
 };
 
 export type GetListenerProfileResponse = {
@@ -134,10 +134,10 @@ export type GetListenerProfileResponse = {
 
 export interface GetFeedbackResponse {
   total: number;
-  feedback: Feedback[];
+  feedback: PandoraTrackFeedback[];
 }
 
-export type Feedback = {
+export type PandoraTrackFeedback = {
   feedbackId: string;
   isPositive: boolean;
   stationId: string;
@@ -157,7 +157,7 @@ export type Feedback = {
   albumArt: ArtDetail[];
 };
 
-export type StationFeedback = Feedback & {
+export type PandoraStationFeedback = PandoraTrackFeedback & {
   sampleUrl: string;
   amazonUrl: string;
   amazonDigitalAsin: string;
