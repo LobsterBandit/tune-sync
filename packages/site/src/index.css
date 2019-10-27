@@ -1,0 +1,14 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+p {
+  margin: 0 0 1em;
+}
+
+* {
+  box-sizing: border-box;
+}

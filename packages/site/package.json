@@ -3,13 +3,19 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "@tune-sync/common": "^1.0.0",
+    "@tune-sync/pandora": "^1.0.0",
+    "@tune-sync/web": "^1.0.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
-    "react-scripts": "3.2.0"
+    "react-dropzone": "10.1.10",
+    "react-scripts": "3.2.0",
+    "styled-components": "4.4.0"
   },
   "devDependencies": {
     "@types/react": "16.9.11",
-    "@types/react-dom": "16.9.3"
+    "@types/react-dom": "16.9.3",
+    "@types/styled-components": "4.1.8"
   },
   "scripts": {
     "start": "react-scripts start",

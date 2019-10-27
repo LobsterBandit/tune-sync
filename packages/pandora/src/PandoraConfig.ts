@@ -16,6 +16,7 @@ export class PandoraConfig implements ServiceConfiguration<PandoraUser> {
 
   async getConfig() {
     if (fs.existsSync(this.configFileFull)) {
+      // TODO: decrypt the file
       const configRaw = fs.readFileSync(this.configFileFull, {
         encoding: 'utf8',
       });
@@ -29,6 +30,7 @@ export class PandoraConfig implements ServiceConfiguration<PandoraUser> {
     if (!fs.existsSync(this.configFileFull)) {
       await makeDir(this.configDir);
     }
+    // TODO: encrypt the file
     fs.writeFileSync(this.configFileFull, JSON.stringify(user));
   }
 }

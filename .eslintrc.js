@@ -1,6 +1,10 @@
 module.exports = {
-  extends: ['@spotify', 'plugin:prettier/recommended'],
-  plugins: ['prettier'],
+  extends: [
+    // 'plugin:react/recommended',
+    '@spotify',
+    'plugin:prettier/recommended',
+  ],
+  plugins: ['react', 'prettier'],
   parserOptions: {
     projects: ['./tsconfig.eslint.json', './packages/*/tsconfig.json'],
   },
@@ -10,6 +14,9 @@ module.exports = {
     },
   },
   rules: {
-    '@typescript-eslint/no-unused-vars': 'off',
+    // Prevent React to be incorrectly marked as unused
+    'react/jsx-uses-react': 2,
+    // Prevent variables used in JSX to be incorrectly marked as unused
+    'react/jsx-uses-vars': 2,
   },
 };
