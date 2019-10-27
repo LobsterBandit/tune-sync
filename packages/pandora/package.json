@@ -16,11 +16,11 @@
   "dependencies": {
     "@tune-sync/common": "^1.0.0",
     "@types/promptly": "3.0.0",
-    "axios": "^0.19.0",
-    "cookie": "^0.4.0"
+    "axios": "0.19.0",
+    "cookie": "0.4.0"
   },
   "devDependencies": {
-    "@types/cookie": "^0.3.3",
-    "@types/node": "^12.11.7"
+    "@types/cookie": "0.3.3",
+    "@types/node": "12.11.7"
   }
 }

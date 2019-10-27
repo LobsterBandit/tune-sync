@@ -11,6 +11,6 @@
     "module": "commonjs"
   },
   "include": ["src"],
-  "exclude": ["src/**/*.test.ts", "src/**/*/test.tsx", "src/**/*.story.tsx"],
+  "exclude": ["src/**/*.test.ts", "src/**/*.test.tsx", "src/**/*.story.tsx"],
   "references": [{ "path": "../common" }]
 }
