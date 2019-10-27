@@ -1,19 +1,35 @@
+import fs from 'fs';
+import * as os from 'os';
+import * as path from 'path';
+import makeDir from 'make-dir';
 import { ServiceConfiguration } from '@tune-sync/common';
 import { PandoraUser } from './PandoraUser';
 
 export class PandoraConfig implements ServiceConfiguration<PandoraUser> {
-  public readonly homeDir =
-    process.env[process.platform === 'win32' ? 'USERPROFILE' : 'HOME'] || '.';
-  public readonly appFolder = 'pandora';
-  public readonly settingsFile = 'user.json';
+  public readonly configDir = path.join(
+    process.env[os.platform() === 'win32' ? 'USERPROFILE' : 'HOME'] || '.',
+    `${os.platform() !== 'win32' ? '.' : ''}tune-sync`,
+  );
+  public readonly configFile = 'pandora_user.json';
 
-  getSettings() {
-    return {} as PandoraUser;
+  private configFileFull = path.join(this.configDir, this.configFile);
+
+  async getConfig() {
+    if (fs.existsSync(this.configFileFull)) {
+      const configRaw = fs.readFileSync(this.configFileFull, {
+        encoding: 'utf8',
+      });
+      const config: PandoraUser = JSON.parse(configRaw);
+      return config;
+    }
+    return undefined;
   }
 
-  saveSettings(user: PandoraUser) {
-    // eslint-disable-next-line no-console
-    console.log(user);
+  async saveConfig(user: PandoraUser) {
+    if (!fs.existsSync(this.configFileFull)) {
+      await makeDir(this.configDir);
+    }
+    fs.writeFileSync(this.configFileFull, JSON.stringify(user));
   }
 }
 

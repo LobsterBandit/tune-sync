@@ -8,8 +8,7 @@ exports.describe = 'pandora tune-sync plugin';
 exports.builder = function pandoraBuilder(yargs: yargsTypes.Argv) {
   return yargs
     .commandDir('pandora_commands', { extensions: ['js', 'ts'] })
-    .usage('Usage: $0 pandora <command> [options]')
-    .example('$0 pandora login -u user -p password', 'Log in to Pandora');
+    .usage('Usage: pandora <command> [options]');
 };
 
 exports.handler = function pandoraHandler() {};

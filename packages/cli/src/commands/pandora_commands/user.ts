@@ -1,17 +1,18 @@
 /* eslint-disable no-console */
-import * as fs from 'fs';
-import { PandoraUser } from '@tune-sync/pandora';
+import { PandoraService } from '@tune-sync/pandora';
 
 exports.command = 'user';
-exports.describe = 'show saved user profile';
+exports.describe = 'Display stored user profile';
 exports.builder = {};
-exports.handler = function pandoraUserHandler() {
-  if (!fs.existsSync('./pandora_user.json')) {
-    throw new Error('No saved user profile');
+exports.handler = async function pandoraUserHandler() {
+  const service = new PandoraService();
+  const config = await service.getConfig();
+
+  if (config) {
+    console.log('The User Profile:');
+    console.log(JSON.stringify(config, null, 2));
+  } else {
+    console.log('No stored user profile');
+    console.log('Use the login command to log in');
   }
-  const user = JSON.parse(
-    fs.readFileSync('./pandora_user.json', 'utf8'),
-  ) as PandoraUser;
-  console.log('The User Profile:');
-  console.log(JSON.stringify(user, null, 2));
 };

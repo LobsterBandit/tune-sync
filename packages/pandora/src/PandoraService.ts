@@ -1,3 +1,6 @@
+/* eslint-disable no-console */
+import * as fs from 'fs';
+import * as path from 'path';
 import pandoraConfig from './PandoraConfig';
 import { RestClient } from './RestClient';
 import {
@@ -6,6 +9,7 @@ import {
   GetStationFeedbackRequest,
   GetListenerProfileRequest,
   GetFeedbackRequest,
+  LoginOptions,
 } from './request-types';
 import {
   GetStationsResponse,
@@ -15,39 +19,67 @@ import {
   AnnotateObjectsSimpleResponse,
   GetFeedbackResponse,
 } from './response-types';
+import { PandoraUser } from './PandoraUser';
+import { AxiosError } from 'axios';
 
 export class PandoraService {
   private client: RestClient;
+  private user?: PandoraUser;
 
   constructor() {
-    this.client = new RestClient(pandoraConfig);
+    this.client = new RestClient();
   }
 
-  public async login(
-    username: string,
-    password: string,
-    authToken?: string | null,
-  ) {
-    const loginOptions = {
-      username,
-      password,
-      authToken,
-      keepLoggedIn: true,
-    };
+  public async getConfig() {
+    const config = await pandoraConfig.getConfig();
+    if (config) {
+      this.user = config;
+    }
+    return config;
+  }
 
-    if (authToken) {
-      // if authToken is present, send empty password
-      // only send password if authToken fails
-      loginOptions.password = '';
+  public async tryLogin({
+    username,
+    password,
+    keepLoggedIn = true,
+  }: LoginOptions) {
+    let success = false;
+    try {
+      const loginRes = await this.client.authLogin({
+        username,
+        password,
+        keepLoggedIn,
+      });
+
+      if (loginRes.status === 200) {
+        success = true;
+        this.user = loginRes.data;
+        await pandoraConfig.saveConfig(loginRes.data);
+      }
+    } catch (error) {
+      success = false;
+      const err: AxiosError = error;
+      if (err.response) {
+        console.log(err.response.data);
+      } else {
+        console.log('Error', err.message);
+      }
     }
 
-    const res = await this.client.authLogin(username, password);
-    this.client.user = res.data;
-    return res;
+    return success;
   }
 
-  public getUser() {
-    return this.client.user;
+  public async getUser() {
+    if (this.user) {
+      return this.user;
+    }
+
+    const config = await this.getConfig();
+    if (config) {
+      this.user = config;
+    }
+
+    return this.user;
   }
 
   public async getBookmarks() {
@@ -89,10 +121,26 @@ export class PandoraService {
     return res;
   }
 
-  public async getFeedback(options: GetFeedbackRequest) {
+  public async getFeedback({
+    pageSize = 50,
+    startIndex = 0,
+  }: Partial<GetFeedbackRequest> = {}) {
+    const user = await this.getUser();
+    if (!user) {
+      throw new Error('Not logged in');
+    }
     const res = await this.client.request<GetFeedbackResponse>(
       'station/getFeedback',
-      { data: options },
+      {
+        data: {
+          pageSize,
+          startIndex,
+          webname: user.webname,
+        },
+      },
+      {
+        authToken: user.authToken,
+      },
     );
     return res;
   }
@@ -104,5 +152,11 @@ export class PandoraService {
       { version: 'v4' },
     );
     return res;
+  }
+
+  public async writeOutput(filename: string, data: any) {
+    const dest = path.join(pandoraConfig.configDir, filename);
+    await fs.promises.writeFile(dest, data);
+    return dest;
   }
 }

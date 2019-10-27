@@ -1,10 +1,9 @@
 /* eslint-disable no-console */
 import yargs from 'yargs';
 
-const argv = yargs
+// eslint-disable-next-line no-unused-expressions
+yargs
   .commandDir('commands', { extensions: ['js', 'ts'] })
   .demandCommand()
   .help('h')
   .alias('h', 'help').argv;
-
-console.log(argv);

@@ -12,5 +12,7 @@
     "prepare": "yarn run clean && tsc -b --force",
     "start": "tsc -b --watch"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/node": "12.11.7"
+  }
 }

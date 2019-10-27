@@ -1,10 +1,11 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 import cookie from 'cookie';
 import { PandoraUser } from './PandoraUser';
-import { ServiceConfiguration } from '@tune-sync/common';
+import { LoginOptions } from './request-types';
 
 export type ApiConfig = {
   version?: string;
+  authToken?: string;
 };
 
 export class RestClient {
@@ -13,17 +14,14 @@ export class RestClient {
   private csrfHeaderName = 'X-CsrfToken';
   private baseURL = 'https://www.pandora.com/';
   private apiClient: AxiosInstance;
-  private config: ServiceConfiguration<PandoraUser>;
 
   public cookies = new Map<string, string>();
-  public user: PandoraUser | null = null;
 
-  constructor(config: ServiceConfiguration<PandoraUser>) {
+  constructor() {
     this.apiClient = axios.create({
       xsrfCookieName: 'csrftoken',
       xsrfHeaderName: 'X-CsrfToken',
     });
-    this.config = config;
   }
 
   async request<T = any>(
@@ -47,9 +45,7 @@ export class RestClient {
       options.headers.cookie = options.headers.cookie
         ? options.headers.cookie + [...this.cookies.values()].join('; ')
         : [...this.cookies.values()].join('; ');
-      if (this.user) {
-        options.headers['X-AuthToken'] = this.user.authToken;
-      }
+      options.headers['X-AuthToken'] = apiConfig.authToken || '';
     }
 
     const response = await this.apiClient.request<T>(options);
@@ -79,25 +75,20 @@ export class RestClient {
     return res;
   }
 
-  // try to load authToken from config first
-  // only log in with password if its not present or doesnt work
-  async authLogin(username: string, password: string) {
+  async authLogin({
+    username,
+    password = '',
+    authToken,
+    keepLoggedIn = true,
+  }: Partial<LoginOptions>) {
     const res = await this.request<PandoraUser>('auth/login', {
       data: {
         username,
         password,
-        existingAuthToken: null,
-        keepLoggedIn: true,
+        existingAuthToken: authToken,
+        keepLoggedIn,
       },
     });
     return res;
-  }
-
-  getAuthToken() {
-    return this.user ? this.user.authToken : null;
-  }
-
-  getConfig() {
-    return this.config;
   }
 }

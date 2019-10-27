@@ -5,6 +5,13 @@ export type PagedRequest = {
   startIndex: number;
 };
 
+export type LoginOptions = {
+  username: string;
+  password: string;
+  authToken?: string;
+  keepLoggedIn?: boolean;
+};
+
 export type GetStationsRequest = PagedRequest;
 
 export type GetStationDetailsRequest = {
