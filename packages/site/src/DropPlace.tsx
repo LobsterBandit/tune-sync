@@ -22,7 +22,7 @@ export const DropPlace = ({
       reader.onload = () => {
         const textStr = reader.result as string;
         const typed = JSON.parse(textStr) as PandoraTrackFeedback[];
-        if (onFileParse) onFileParse(typed);
+        onFileParse(typed);
       };
 
       acceptedFiles.forEach((file: any) => {
